@@ -1,7 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router';
 
 const Item = ({ product }) => {
+  const navigate = useNavigate()
   return (
     <Card
       style={{ width: '18rem' }}
@@ -44,7 +46,10 @@ const Item = ({ product }) => {
           ${product.price}
         </Card.Text>
 
-        <Button variant="primary" className="mt-auto">
+        <Button
+          onClick={ () => navigate(`/items/${product.id}`) }
+          variant="primary"
+          className="mt-auto">
           Ver más
         </Button>
 
