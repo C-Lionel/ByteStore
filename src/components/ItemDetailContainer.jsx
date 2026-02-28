@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import Loader from "./loader";
+import Loader from "./Loader";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {

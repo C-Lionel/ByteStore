@@ -11,7 +11,7 @@ const ItemDetail = ({ item }) => {
             <Card className="shadow-lg p-4">
                 <Row className="align-items-center">
 
-                    {/* Imagen */}
+                    {/* Img */}
 
                     <Col md={6} className="text-center">
                         <img
@@ -22,7 +22,7 @@ const ItemDetail = ({ item }) => {
                         />
                     </Col>
 
-                    {/* Información */}
+                    {/* Info */}
 
                     <Col md={6}>
                         <h2>{item.title}</h2>
