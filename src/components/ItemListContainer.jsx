@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import ItemList from "./ItemList";
-import Loader from "./loader";
+import Loader from "./Loader";
 
 const ItemListContainer = () => {
 
