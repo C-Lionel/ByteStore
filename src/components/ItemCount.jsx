@@ -24,7 +24,7 @@ const ItemCount = ({ stock = 10, initial = 1 }) => {
 
                 <ButtonGroup>
                     <Button
-                        variant="outline-dark"
+                        variant="danger"
                         onClick={handleRestar}
                         disabled={count <= 1}
                     >
@@ -36,7 +36,7 @@ const ItemCount = ({ stock = 10, initial = 1 }) => {
                     </Button>
 
                     <Button
-                        variant="outline-dark"
+                        variant="success"
                         onClick={handleSumar}
                         disabled={count >= stock}
                     >

@@ -4,6 +4,7 @@ import NavBarContainer from "../components/NavbarContainer";
 import Container from "react-bootstrap/Container";
 import ItemDetailContainer from "../components/ItemDetailContainer";
 import NotFound from "../components/NotFound";
+import CartContainer from "../components/CartContainer";
 
 const AppRouter = () => {
 
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Container className="mt-4">
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
+          <Route path="/cart" element={<CartContainer />} />
           <Route path="/category/:categoryName" element={<ItemListContainer />} />
           <Route path="/items/:id" element={<ItemDetailContainer />} />
           <Route path="*" element={<NotFound />} />

@@ -1,15 +1,23 @@
 import Badge from 'react-bootstrap/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+import { Link } from "react-router";
 
 const CartWidget = () => {
+
+  const context = useContext(CartContext);
+  console.log(context)
+
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-      <FontAwesomeIcon className='text-white' icon={faCartShopping} size="lg" />
-      <Badge bg="danger">3</Badge>
-    </div>
+    <Link to="/cart" style={{ textDecoration: "none" }}>
+      <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }}>
+        <FontAwesomeIcon className='text-white' icon={faCartShopping} size="lg" />
+        <Badge bg="danger">3</Badge>
+      </div>
+    </Link>
   );
 };
 
 export default CartWidget;
-
