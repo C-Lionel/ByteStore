@@ -42,6 +42,7 @@ const ItemDetail = ({ item }) => {
                         <ItemCount
                             stock={item.stock}
                             initial={1}
+                            item={item}
                         />
                     </Col>
 

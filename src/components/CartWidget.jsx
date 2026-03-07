@@ -7,14 +7,13 @@ import { Link } from "react-router";
 
 const CartWidget = () => {
 
-  const context = useContext(CartContext);
-  console.log(context)
-
+  const {getCartQuantity} = useContext(CartContext);
+  const quantity = getCartQuantity()
   return (
     <Link to="/cart" style={{ textDecoration: "none" }}>
       <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }}>
         <FontAwesomeIcon className='text-white' icon={faCartShopping} size="lg" />
-        <Badge bg="danger">3</Badge>
+        <Badge bg="danger"> {quantity} </Badge>
       </div>
     </Link>
   );

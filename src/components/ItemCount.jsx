@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Card from "react-bootstrap/Card";
+import { CartContext } from "../context/CartContext";
 
-const ItemCount = ({ stock = 10, initial = 1 }) => {
+const ItemCount = ({ stock = 10, initial = 1, item }) => {
+
     const [count, setCount] = useState(initial);
+
+    const { addToCart } = useContext(CartContext)
 
     const handleSumar = () => {
         if (count < stock) setCount(count + 1);
@@ -13,6 +17,10 @@ const ItemCount = ({ stock = 10, initial = 1 }) => {
     const handleRestar = () => {
         if (count > 1) setCount(count - 1);
     };
+
+    const handleAddToCart = () => {
+        addToCart({...item, count})
+    }
 
     return (
         <Card className="p-3 shadow-sm mt-3">
@@ -49,6 +57,7 @@ const ItemCount = ({ stock = 10, initial = 1 }) => {
                     size="lg"
                     className="w-100 mt-3 fw-semibold"
                     disabled={stock === 0}
+                    onClick={handleAddToCart}
                 >
                     Agregar al carrito
                 </Button>
