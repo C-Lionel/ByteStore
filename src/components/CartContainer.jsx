@@ -1,10 +1,14 @@
 
-const CartContainer = () => {
-    return (
-        <div>
-            <h2>Cart Container </h2>
-        </div>
-    )
-}
+import { useCart } from "../custom-hooks/useCart";
+import CartList from "./CartList";
 
-export default CartContainer
+const CartContainer = () => {
+
+    const cartData = useCart();
+
+    return (
+       <CartList {...cartData} />
+    );
+};
+
+export default CartContainer;
