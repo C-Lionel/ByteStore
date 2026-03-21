@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { getProducts, getProductsByCategory } from "../firebase/db";
 import ItemList from "./ItemList";
 import Loader from "./Loader";
 
@@ -9,21 +10,22 @@ const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
+  setLoading(true);
 
-    setLoading(true);
+  if (categoryName) {
+  getProductsByCategory(categoryName)
+    .then(prods => setItems(prods))
+    .catch(err => console.log(err))
+    .finally(() => setLoading(false));
+} else {
+  getProducts()
+    .then(prods => setItems(prods))
+    .catch(err => console.log(err))
+    .finally(() => setLoading(false));
+}
 
-    const url = categoryName
-      ? `https://dummyjson.com/products/category/${categoryName}`
-      : "https://dummyjson.com/products?limit=36";
-
-    fetch(url)
-      .then(res => res.json())
-      .then(data => setItems(data.products));
-      setLoading(false);
-
-  }, [categoryName]);
+}, [categoryName]);
 
   return (
     <div className="container mt-4">

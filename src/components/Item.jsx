@@ -11,7 +11,8 @@ const Item = ({ product }) => {
     >
       <Card.Img
         variant="top"
-        src={product.thumbnail}
+        src={product.image}
+        alt={product.name}
         style={{
           height: "200px",
           objectFit: "contain",

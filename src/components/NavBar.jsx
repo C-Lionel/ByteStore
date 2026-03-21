@@ -6,7 +6,7 @@ import styles from "./NavBar.module.css";
 import logo from "../assets/logo.svg";
 import CartWidget from "./CartWidget";
 
-const NavBar = ({ categories, categoryMap }) => {
+const NavBar = ({ categories }) => {
 
   return (
     <Navbar className={styles.navbar} expand="lg">
@@ -35,7 +35,7 @@ const NavBar = ({ categories, categoryMap }) => {
                 to={`/category/${cat}`}
                 className="text-white"
               >
-                {categoryMap[cat]}
+                { cat }
               </Nav.Link>
             ))}
 
