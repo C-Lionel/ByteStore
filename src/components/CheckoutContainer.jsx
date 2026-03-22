@@ -1,7 +1,27 @@
-import React from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { serverTimestamp } from 'firebase/firestore';
+import { createOrder } from "../firebase/db";
+import { useCart } from "../custom-hooks/useCart";
 
 const CheckoutContainer = () => {
+
+  const { cart, getCartTotal } = useCart();
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target;
+    const email = form.email.value;
+    const name = form.name.value;
+    const address = form.address.value;
+    const phone = form.phone.value;
+    createOrder({
+      user: {email, name, address, phone},
+      items: cart,
+      total: getCartTotal(),
+      time: serverTimestamp()
+    })
+  }
+
   return (
     <Container
       fluid
@@ -22,12 +42,14 @@ const CheckoutContainer = () => {
               Finalizá tu compra
             </h4>
 
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Label className="text-muted small">Email</Form.Label>
                 <Form.Control
+                  id="email"
                   type="email"
                   placeholder="email@email.com"
+                  required
                   style={{ borderRadius: "8px" }}
                 />
               </Form.Group>
@@ -35,8 +57,10 @@ const CheckoutContainer = () => {
               <Form.Group className="mb-3">
                 <Form.Label className="text-muted small">Nombre</Form.Label>
                 <Form.Control
+                  id="name"
                   type="text"
                   placeholder="Juan Pérez"
+                  required
                   style={{ borderRadius: "8px" }}
                 />
               </Form.Group>
@@ -44,8 +68,10 @@ const CheckoutContainer = () => {
               <Form.Group className="mb-3">
                 <Form.Label className="text-muted small">Dirección</Form.Label>
                 <Form.Control
+                  id="address"
                   type="text"
                   placeholder="Calle 123"
+                  required
                   style={{ borderRadius: "8px" }}
                 />
               </Form.Group>
@@ -53,14 +79,17 @@ const CheckoutContainer = () => {
               <Form.Group className="mb-4">
                 <Form.Label className="text-muted small">Teléfono</Form.Label>
                 <Form.Control
+                  id="phone"
                   type="text"
                   placeholder="+54 9 11 1234 5678"
+                  required
                   style={{ borderRadius: "8px" }}
                 />
               </Form.Group>
 
               <div className="d-grid">
                 <Button
+                  type="submit"
                   variant="dark"
                   size="lg"
                   style={{
