@@ -15,8 +15,8 @@ const ItemDetail = ({ item }) => {
 
                     <Col md={6} className="text-center">
                         <img
-                            src={item.thumbnail}
-                            alt={item.title}
+                            src={item.image}
+                            alt={item.name}
                             className="img-fluid"
                             style={{ maxHeight: "400px", objectFit: "contain" }}
                         />
@@ -25,7 +25,7 @@ const ItemDetail = ({ item }) => {
                     {/* Info */}
 
                     <Col md={6}>
-                        <h2>{item.title}</h2>
+                        <h2>{item.name}</h2>
 
                         <Badge bg="secondary" className="mb-2">
                             {item.category}

@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import CartItem from "./CartItem";
+import { Navigate, useNavigate } from "react-router";
 
 const CartList = ({ cart, removeItem, clearCart, updateItemQuantity }) => {
 
@@ -11,6 +12,8 @@ const CartList = ({ cart, removeItem, clearCart, updateItemQuantity }) => {
         (acc, item) => acc + item.price * item.count,
         0
     );
+    const navigate = useNavigate()
+
 
     return (
         <Container className="mt-5">
@@ -55,8 +58,9 @@ const CartList = ({ cart, removeItem, clearCart, updateItemQuantity }) => {
                                     <Button
                                         variant="success"
                                         size="lg"
+                                        onClick={() => navigate('/checkout')}
                                     >
-                                        Finalizar compra
+                                        Completar datos
                                     </Button>
 
                                 </div>

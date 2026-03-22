@@ -1,5 +1,5 @@
 
-import { getFirestore, collection, getDocs, query, where } from "firebase/firestore"; 
+import { getFirestore, collection, getDocs, query, where, doc, getDoc } from "firebase/firestore"; 
 import { app } from './config'
 
 const db = getFirestore(app);
@@ -37,3 +37,19 @@ export const getProductsByCategory = async (category) => {
 
   return products;
 }
+
+export const getDetail = async (id) => {
+
+  const docRef = doc(db, "products", id);
+  const docSnap = await getDoc(docRef);
+  
+  if (docSnap.exists()) {
+    return {
+      ...docSnap.data(),
+      id: docSnap.id
+    }
+  } else {
+      console.error("No se encontro el detalle..")
+  }
+}
+

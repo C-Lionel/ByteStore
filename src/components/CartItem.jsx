@@ -15,14 +15,14 @@ const CartItem = ({ product, removeItem, updateItemQuantity }) => {
 
                     <Col md={2}>
                         <Card.Img
-                            src={product.thumbnail}
+                            src={product.image}
                             style={{ maxHeight: "80px", objectFit: "contain" }}
                         />
                     </Col>
 
                     <Col md={3}>
                         <Card.Title className="mb-1">
-                            {product.title}
+                            {product.name}
                         </Card.Title>
 
                         <small className="text-muted">

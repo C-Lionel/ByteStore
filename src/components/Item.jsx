@@ -24,7 +24,7 @@ const Item = ({ product }) => {
       <Card.Body className="d-flex flex-column">
 
         <Card.Title style={{ minHeight: "48px" }}>
-          {product.title}
+          {product.name}
         </Card.Title>
 
         <Card.Text
