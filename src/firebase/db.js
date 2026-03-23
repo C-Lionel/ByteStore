@@ -1,6 +1,7 @@
 
 import { getFirestore, collection, getDocs, query, where, doc, getDoc, addDoc } from "firebase/firestore";
 import { app } from './config'
+import toast from "react-hot-toast";
 
 const db = getFirestore(app);
 
@@ -53,7 +54,20 @@ export const getDetail = async (id) => {
   }
 }
 
-export const createOrder = async (order) => {
-  const docRef = await addDoc(collection(db, "orders",), order)
-  console.log("Document weitten with ID: ", docRef.id)
+export const createOrder = async (order, clearCart, navigate) => {
+  const docRef = await addDoc(collection(db, "orders",), order);
+     toast.success(
+      `🎉 ¡Compra realizada con éxito!\nID: ${docRef.id}`,
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "colored",
+      }
+    );
+    clearCart();
+    navigate('/');
 }

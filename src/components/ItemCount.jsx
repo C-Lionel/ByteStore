@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Card from "react-bootstrap/Card";
 import { CartContext } from "../context/CartContext";
+import toast from "react-hot-toast";
 
 const ItemCount = ({ stock = 10, initial = 1, item }) => {
 
@@ -19,7 +20,20 @@ const ItemCount = ({ stock = 10, initial = 1, item }) => {
     };
 
     const handleAddToCart = () => {
-        addToCart({...item, count})
+        addToCart({ ...item, count });
+        toast.success('✔ Producto agregado al carrito', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            theme: "dark",
+            style: {
+                borderRadius: "10px",
+                fontWeight: "500",
+            }
+        });
     }
 
     return (

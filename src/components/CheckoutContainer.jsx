@@ -2,24 +2,39 @@ import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import { serverTimestamp } from 'firebase/firestore';
 import { createOrder } from "../firebase/db";
 import { useCart } from "../custom-hooks/useCart";
+import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
+
 
 const CheckoutContainer = () => {
 
-  const { cart, getCartTotal } = useCart();
+  const { cart, getCartTotal, clearCart } = useCart();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if (!cart.length) {
+      toast.warning("🛒 Tu carrito está vacío", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        theme: "colored",
+      });
+      return;
+    }
+
     const form = e.target;
     const email = form.email.value;
     const name = form.name.value;
     const address = form.address.value;
     const phone = form.phone.value;
     createOrder({
-      user: {email, name, address, phone},
+      user: { email, name, address, phone },
       items: cart,
       total: getCartTotal(),
       time: serverTimestamp()
-    })
+    }, clearCart, navigate)
   }
 
   return (

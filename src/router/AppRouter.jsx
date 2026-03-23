@@ -6,6 +6,7 @@ import ItemDetailContainer from "../components/ItemDetailContainer";
 import NotFound from "../components/NotFound";
 import CartContainer from "../components/CartContainer";
 import CheckoutContainer from "../components/CheckoutContainer";
+import { Toaster } from "react-hot-toast";
 
 const AppRouter = () => {
 
@@ -23,6 +24,7 @@ const AppRouter = () => {
           <Route path="/checkout" element={<CheckoutContainer />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Toaster />
       </Container>
 
     </BrowserRouter>

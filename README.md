@@ -1,16 +1,60 @@
-# React + Vite
+# 🛒 BiteStore
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BiteStore es una aplicación web de E-Commerce desarrollada como proyecto final del curso de React en Coderhouse. Simula el funcionamiento de una tienda online real, permitiendo a los usuarios navegar productos, ver detalles, gestionar un carrito de compras y finalizar una orden.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- Vite
+- React Router
+- Firebase (Firestore)
+- Bootstrap / React-Bootstrap
+- FontAwesome / React Icons
 
-## React Compiler
+## 📦 Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 📋 Listado de productos
+- 🔍 Vista detallada de cada producto
+- 🗂️ Filtrado por categorías
+- 🛒 Agregar y eliminar productos del carrito
+- 🔢 Control de cantidades
+- 💳 Formulario de checkout
+- 🧾 Generación de orden de compra en Firebase
+- ⏳ Manejo de estados de carga (loading)
 
-## Expanding the ESLint configuration
+## 🧠 Descripción del proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+BiteStore es una simulación de e-commerce orientada a replicar una experiencia real de compra online.  
+Los productos se obtienen desde Firebase y las órdenes generadas durante el proceso de compra se almacenan en la base de datos.
+
+Este proyecto no está destinado a un cliente real, sino que tiene fines educativos, aplicando buenas prácticas y conceptos fundamentales del desarrollo con React.
+
+## ⚙️ Instalación y uso
+
+1. Clonar el repositorio: **git clone https://github.com/C-Lionel/ByteStore.git**
+2. Instalar dependencias: **npm install**
+3. Ejecutar el proyecto: **npm run dev**
+4. Generar build de producción: **npm run build**
+5. Previsualizar build: **npm run preview**
+
+## 🔥 Firebase 
+
+La aplicación utiliza Firebase para simular la persistencia de datos:
+
+Base de datos (Firestore) para productos y órdenes
+Generación de órdenes de compra con ID único
+
+⚠️ Recordá configurar tus credenciales de Firebase en el archivo correspondiente antes de ejecutar el proyecto.
+
+## 📌 Notas
+Este proyecto es una simulación educativa y no está conectado a un sistema de pagos real.
+Está diseñado para reflejar un flujo de compra típico de un E-Commerce moderno.
+
+## 👨‍💻 Autor
+
+Desarrollado por **Lionel Cancellieri**  
+Proyecto final del curso de React en Coderhouse
+
+
+
+
