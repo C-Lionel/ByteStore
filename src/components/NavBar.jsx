@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import styles from "./NavBar.module.css";
 import logo from "../assets/logo.svg";
 import CartWidget from "./CartWidget";
@@ -10,6 +10,7 @@ const NavBar = ({ categories }) => {
 
   return (
     <Navbar className={styles.navbar} expand="lg">
+
       <Container>
 
         <Navbar.Brand
@@ -25,24 +26,34 @@ const NavBar = ({ categories }) => {
         </Navbar.Brand>
 
         <Navbar.Toggle />
+
         <Navbar.Collapse>
-          <Nav className="me-auto">
+
+          <Nav className={`${styles.nav} flex-grow-1 justify-content-center`}>
 
             {categories.map(cat => (
-              <Nav.Link
+              <NavLink
                 key={cat}
-                as={Link}
                 to={`/category/${cat}`}
-                className="text-white"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.link} ${styles.activeLink}`
+                    : styles.link
+                }
               >
-                { cat }
-              </Nav.Link>
+                {cat}
+              </NavLink>
             ))}
 
           </Nav>
 
-          <CartWidget />
+          <div className={styles.cartContainer}>
+            <CartWidget />
+          </div>
+
+
         </Navbar.Collapse>
+
       </Container>
     </Navbar>
   );

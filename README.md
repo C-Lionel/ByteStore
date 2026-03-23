@@ -8,7 +8,7 @@ BiteStore es una aplicación web de E-Commerce desarrollada como proyecto final 
 - Vite
 - React Router
 - Firebase (Firestore)
-- Bootstrap / React-Bootstrap
+- React-Bootstrap
 - FontAwesome / React Icons
 
 ## 📦 Funcionalidades

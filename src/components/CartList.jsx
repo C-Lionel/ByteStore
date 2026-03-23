@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import CartItem from "./CartItem";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const CartList = ({ cart, removeItem, clearCart, updateItemQuantity }) => {
 

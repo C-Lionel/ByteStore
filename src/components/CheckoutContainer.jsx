@@ -29,6 +29,7 @@ const CheckoutContainer = () => {
     const name = form.name.value;
     const address = form.address.value;
     const phone = form.phone.value;
+    
     createOrder({
       user: { email, name, address, phone },
       items: cart,

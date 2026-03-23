@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Card from "react-bootstrap/Card";
-import { CartContext } from "../context/CartContext";
 import toast from "react-hot-toast";
 
 const ItemCount = ({ stock = 10, initial = 1, item }) => {

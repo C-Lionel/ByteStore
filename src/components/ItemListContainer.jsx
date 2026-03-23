@@ -11,6 +11,7 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    
   setLoading(true);
 
   if (categoryName) {

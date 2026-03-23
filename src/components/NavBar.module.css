@@ -1,13 +1,59 @@
 
 .navbar {
-  background-color:  #0f3460;
+  background-color: #0f3460;
 }
 
-.brand {
-  margin-right: 150px;
+.nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.link {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.link:hover {
+  color: #D3E094;
+  transform: scale(1.03);
+}
+
+.activeLink {
+  color: #D3E094;
 }
 
 .logo {
-  height: 50px;
+  height: 45px;
   cursor: pointer;
 }
+
+.cartContainer {
+  display: flex;
+  align-items: center;
+}
+
+/* Icono hamburguesa collapse */
+
+.navbar :global(.navbar-toggler) {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar :global(.navbar-toggler-icon) {
+  filter: invert(1); 
+}
+
+/* Carrito */
+
+@media (max-width: 991px) {
+  .cartContainer {
+    width: 100%;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+
